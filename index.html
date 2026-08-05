@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>الحسام تكنلوجي | إبداع تقني.. حلول متكاملة.. ونتائج تُرى</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;900&family=Cairo:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    :root {
+      --navy-950: #050a16;
+      --navy-900: #0a1730;
+      --navy-800: #0f1f3d;
+      --navy-700: #16294d;
+      --card: #0e1c38;
+      --text: #eef2f8;
+      --muted: #9fb0c8;
+      --gold: #d4af6a;
+      --gold-2: #f0c987;
+      --line: #1e2c4d;
+      --radius: 16px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--navy-950);
+      color: var(--text);
+      font-family: Cairo, sans-serif;
+      line-height: 1.85;
+      overflow-x: hidden;
+    }
+
+    h1,
+    h2,
+    h3,
+    .display {
+      font-family: Tajawal, sans-serif;
+      font-weight: 900;
+    }
+
+    .mono {
+      font-family: JetBrains Mono, monospace;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    ::selection {
+      background: var(--gold);
+      color: #0a1730;
+    }
+
+    .bg-fx {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .bg-fx .glow1 {
+      position: absolute;
+      top: -10%;
+      right: -10%;
+      width: 60vw;
+      height: 60vw;
+      background: radial-gradient(circle, rgba(212, 175, 106, 0.10), transparent 65%);
+    }
+
+    .bg-fx .glow2 {
+      position: absolute;
+      bottom: -15%;
+      left: -10%;
+      width: 55vw;
+      height: 55vw;
+      background: radial-gradient(circle, rgba(22, 41, 77, 0.55), transparent 65%);
+    }
+
+    .bg-fx .grid {
+      position: absolute;
+      inset: 0;
+      background-image: linear-gradient(rgba(212, 175, 106, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(212, 175, 106, 0.035) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: radial-gradient(ellipse 75% 55% at 50% 0%, #000 30%, transparent 100%);
+    }
+
+    .wrap {
+      max-width: 1020px;
+      margin: 0 auto;
+      padding: 0 24px;
+      position: relative;
+      z-index: 1;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      background: rgba(5, 10, 22, 0.82);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: Tajawal, sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      overflow: hidden;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 1px rgba(212, 175, 106, .35);
+    }
+
+    .brand-mark img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    nav .links {
+      display: flex;
+      gap: 26px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav .links a:hover {
+      color: var(--gold);
+    }
+
+    @media (max-width:760px) {
+      nav .links {
+        display: none;
+      }
+    }
+
+    header.hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 130px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    @media (max-width:820px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual .glow-ring {
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(212, 175, 106, .22), transparent 70%);
+      filter: blur(4px);
+    }
+
+    .hero-visual .plaque {
+      position: relative;
+      width: 280px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 106, .35);
+      box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6), 0 0 0 1px rgba(212, 175, 106, .08);
+    }
+
+    .hero-visual .plaque img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width:820px) {
+      .hero-visual {
+        margin-top: 10px;
+      }
+
+      .hero-visual .plaque {
+        width: 220px;
+      }
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: JetBrains Mono, monospace;
+      font-size: 12.5px;
+      color: var(--gold);
+      border: 1px solid rgba(212, 175, 106, .35);
+      background: rgba(212, 175, 106, .06);
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+      width: fit-content;
+    }
+
+    .eyebrow::before {
+      content: ;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: .25;
+      }
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p.lead {
+      color: var(--muted);
+      font-size: clamp(16px, 2.2vw, 18.5px);
+      max-width: 660px;
+      margin-bottom: 20px;
+    }
+
+    .hero p.sub {
+      color: #c6d0e2;
+      font-size: 15px;
+      max-width: 660px;
+      margin-bottom: 36px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 52px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 28px;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      border: none;
+      transition: transform .2s, box-shadow .2s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--gold), var(--gold-2));
+      color: #0a1730;
+      box-shadow: 0 10px 30px -8px rgba(212, 175, 106, .45);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 34px -8px rgba(212, 175, 106, .6);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+    }
+
+    /* marquee of services */
+    .marquee {
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      overflow: hidden;
+      padding: 18px 0;
+    }
+
+    .marquee-track {
+      display: flex;
+      gap: 46px;
+      white-space: nowrap;
+      width: max-content;
+      animation: scroll 26s linear infinite;
+    }
+
+    .marquee-track span {
+      font-family: JetBrains Mono, monospace;
+      font-size: 13px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .marquee-track span::before {
+      content: ◆;
+      color: var(--gold);
+      font-size: 9px;
+    }
+
+    @keyframes scroll {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    section {
+      padding: 90px 0;
+      border-top: 1px solid var(--line);
+      position: relative;
+    }
+
+    .tag {
+      font-family: JetBrains Mono, monospace;
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 1px;
+      margin-bottom: 14px;
+      display: block;
+    }
+
+    section h2 {
+      font-size: clamp(25px, 3.8vw, 37px);
+      margin-bottom: 22px;
+    }
+
+    section p.section-lead {
+      color: var(--muted);
+      max-width: 680px;
+      margin-bottom: 44px;
+      font-size: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width:720px) {
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .two-col .card h3 {
+      font-size: 19px;
+      margin-bottom: 12px;
+      color: var(--gold-2);
+    }
+
+    .two-col .card p {
+      color: #cdd7ea;
+      font-size: 15px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 44px;
+      align-items: start;
+    }
+
+    @media (max-width:760px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .about-grid p {
+      color: #cdd7ea;
+      margin-bottom: 16px;
+    }
+
+    .about-grid strong {
+      color: var(--gold);
+    }
+
+    .stat-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 20px;
+      margin-bottom: 12px;
+    }
+
+    .stat-card .num {
+      font-family: JetBrains Mono, monospace;
+      color: var(--gold);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .stat-card .label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 4px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 18px;
+    }
+
+    .service {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .service:hover {
+      border-color: var(--gold);
+      transform: translateY(-4px);
+    }
+
+    .service .ic {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
+      background: rgba(212, 175, 106, .1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      margin-bottom: 16px;
+    }
+
+    .service h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+      font-family: Cairo, sans-serif;
+      font-weight: 700;
+    }
+
+    .service p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 26px;
+    }
+
+    .why-item {
+      display: flex;
+      gap: 12px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+    }
+
+    .why-item .n {
+      font-family: JetBrains Mono, monospace;
+      color: var(--gold);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .why-item p {
+      color: #cdd7ea;
+      font-size: 14.5px;
+      margin: 0;
+    }
+
+    .mix-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .chip {
+      border: 1px solid rgba(212, 175, 106, .35);
+      color: var(--gold-2);
+      background: rgba(212, 175, 106, .06);
+      padding: 8px 16px;
+      border-radius: 100px;
+      font-size: 13.5px;
+    }
+
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .step {
+      display: flex;
+      gap: 22px;
+      padding: 22px 0;
+      border-bottom: 1px dashed var(--line);
+    }
+
+    .step:last-child {
+      border-bottom: none;
+    }
+
+    .step .num {
+      font-family: JetBrains Mono, monospace;
+      color: var(--gold);
+      font-size: 22px;
+      font-weight: 700;
+      width: 48px;
+      flex-shrink: 0;
+    }
+
+    .step h4 {
+      font-size: 16.5px;
+      margin-bottom: 6px;
+    }
+
+    .step p {
+      color: var(--muted);
+      font-size: 14.5px;
+      margin: 0;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 14px;
+    }
+
+    .value {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .value .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--gold);
+      margin: 0 auto 12px;
+    }
+
+    .value h4 {
+      font-size: 15px;
+    }
+
+    .audience-card {
+      background: linear-gradient(150deg, var(--card), #0a1730);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 36px;
+    }
+
+    .audience-card p {
+      color: #cdd7ea;
+      font-size: 15.5px;
+    }
+
+    .project-card {
+      background: linear-gradient(160deg, var(--card), #0a1730);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: ;
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 90% 10%, rgba(212, 175, 106, 0.12), transparent 60%);
+    }
+
+    .project-card .info {
+      position: relative;
+      z-index: 1;
+      max-width: 540px;
+    }
+
+    .project-card h3 {
+      font-size: 23px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+
+    .badge {
+      display: inline-block;
+      font-family: JetBrains Mono, monospace;
+      font-size: 11px;
+      color: var(--gold);
+      border: 1px solid rgba(212, 175, 106, .35);
+      border-radius: 100px;
+      padding: 4px 12px;
+      margin-bottom: 14px;
+    }
+
+    .project-card .shot {
+      position: relative;
+      z-index: 1;
+      width: 230px;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(212, 175, 106, .3);
+      box-shadow: 0 20px 40px -14px rgba(0, 0, 0, .55);
+      flex-shrink: 0;
+    }
+
+    .project-card .shot img {
+      width: 100%;
+      display: block;
+    }
+
+    @media (max-width:640px) {
+      .project-card .shot {
+        width: 100%;
+      }
+    }
+
+    .final-cta {
+      background: linear-gradient(135deg, rgba(212, 175, 106, .12), rgba(15, 31, 61, .4));
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 48px;
+      text-align: center;
+    }
+
+    .final-cta h2 {
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      color: #d8e0ef;
+      max-width: 600px;
+      margin: 0 auto 30px;
+      font-size: 16px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .contact-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .2s, border-color .2s;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+
+    .contact-card .ic-wrap {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(212, 175, 106, 0.1);
+      font-size: 20px;
+    }
+
+    .contact-card.instagram .ic-wrap {
+      color: #e1306c;
+    }
+
+    .contact-card.whatsapp .ic-wrap {
+      color: #25d366;
+    }
+
+    .contact-card h4 {
+      font-size: 16px;
+    }
+
+    .contact-card span.sub {
+      color: var(--muted);
+      font-size: 13.5px;
+      direction: ltr;
+      text-align: right;
+    }
+
+    .contact-card .go {
+      font-family: JetBrains Mono, monospace;
+      font-size: 12px;
+      color: var(--gold);
+      margin-top: auto;
+    }
+
+    footer {
+      padding: 44px 0 54px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 13.5px;
+      border-top: 1px solid var(--line);
+    }
+
+    footer .brand {
+      justify-content: center;
+      margin-bottom: 10px;
+      color: var(--text);
+    }
+
+    footer .slogan {
+      font-family: JetBrains Mono, monospace;
+      font-size: 12px;
+      color: var(--gold);
+      margin-top: 10px;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 6, 14, .86);
+      backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+    }
+
+    .overlay.show {
+      display: flex;
+    }
+
+    .overlay-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 44px 36px;
+      text-align: center;
+      max-width: 340px;
+      width: 90%;
+    }
+
+    .overlay-box .ring {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 3px solid var(--line);
+      border-top-color: var(--gold);
+      margin: 0 auto 22px;
+      animation: spin 1s linear infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: JetBrains Mono, monospace;
+      font-size: 22px;
+      color: var(--gold);
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .overlay-box h4 {
+      font-size: 18px;
+      margin-bottom: 8px;
+    }
+
+    .overlay-box p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--navy-950);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--line);
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="bg-fx">
+    <div class="glow1"></div>
+    <div class="glow2"></div>
+    <div class="grid"></div>
+  </div>
+
+  <nav>
+    <div class="wrap">
+      <div class="brand"><span class="brand-mark"><img src="hosam-logo.jpg" alt="الحسام تكنلوجي"></span> الحسام تكنلوجي
+      </div>
+      <div class="links">
+        <a href="#about">من نحن</a>
+        <a href="#services">خدماتنا</a>
+        <a href="#work">أعمالنا</a>
+        <a href="#contact">تواصل</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow mono">إبداع تقني · حلول متكاملة · نتائج تُرى</div>
+        <h1>شركة تصنع <span>الحضور الرقمي</span><br>باحتراف</h1>
+        <p class="lead">في الحسام تكنلوجي لا نقدّم خدمة عابرة، بل نبني تجربة متكاملة تُعبّر عن هوية مشروعك وتحوّل أفكارك
+          إلى واقع رقمي احترافي.</p>
+        <p class="sub">شركة تقنية إبداعية تجمع بين التصميم، المونتاج، الجرافيكس، بناء الأنظمة، تطوير المواقع، الأمن
+          السيبراني، والذكاء الاصطناعي في مكان واحد، لنمنحك حلولًا حديثة تساعدك على التميّز والنمو بثقة.</p>
+        <div class="cta-row">
+          <a href="#contact" class="btn btn-primary">ابدأ مشروعك معنا</a>
+          <button class="btn btn-ghost" onclick="startRedirect()">استعرض تطبيق NEXORA IT</button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="glow-ring"></div>
+        <div class="plaque"><img src="hosam-logo.jpg" alt="الحسام تكنلوجي"></div>
+      </div>
+    </div>
+    <div class="marquee">
+      <div class="marquee-track">
+        <span>التصميم والهوية البصرية</span>
+        <span>المونتاج والمحتوى المرئي</span>
+        <span>تطوير المواقع الإلكترونية</span>
+        <span>بناء الأنظمة والحلول التقنية</span>
+        <span>الأمن السيبراني</span>
+        <span>الذكاء الاصطناعي</span>
+        <span>التصميم والهوية البصرية</span>
+        <span>المونتاج والمحتوى المرئي</span>
+        <span>تطوير المواقع الإلكترونية</span>
+        <span>بناء الأنظمة والحلول التقنية</span>
+        <span>الأمن السيبراني</span>
+        <span>الذكاء الاصطناعي</span>
+      </div>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="wrap">
+      <span class="tag"> من نحن</span>
+      <h2>شريكك الموثوق في العالم الرقمي</h2>
+      <div class="about-grid">
+        <div>
+          <p>الحسام تكنلوجي شركة تقنية حديثة تأسست لتكون شريكًا موثوقًا للأفراد والشركات والمؤسسات التي تبحث عن التميز
+            في العالم الرقمي. نعمل على تقديم خدمات متكاملة تشمل التصميم الإبداعي، إنتاج المحتوى المرئي، تطوير الأنظمة،
+            إنشاء المواقع الإلكترونية، وبناء حلول تقنية متقدمة تتناسب مع احتياجات العملاء المختلفة.</p>
+          <p>نحن لا نتعامل مع كل مشروع بوصفه مهمة تنفيذية فقط، بل ندرسه بعناية لنفهم أهدافه، ونحدد أفضل طريقة لتحويله
+            إلى منتج احترافي يحقق قيمة حقيقية. هذا ما يجعلنا مختلفين: <strong>نحن نصنع الحل المناسب، لا مجرد مظهر
+              جميل.</strong></p>
+        </div>
+        <div>
+          <div class="stat-card">
+            <div class="num mono">فكرة</div>
+            <div class="label">ندرس هدف كل مشروع قبل التنفيذ</div>
+          </div>
+          <div class="stat-card">
+            <div class="num mono">تنفيذ</div>
+            <div class="label">دقة واحتراف في كل تفصيلة</div>
+          </div>
+          <div class="stat-card">
+            <div class="num mono">أثر</div>
+            <div class="label">نتائج تُرى وتحقق قيمة حقيقية</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vision-mission">
+    <div class="wrap">
+      <span class="tag">رؤيتنا ورسالتنا</span>
+      <h2>إلى أين نتجه، ولماذا نعمل</h2>
+      <div class="two-col">
+        <div class="card">
+          <h3>رؤيتنا</h3>
+          <p>أن نكون من أبرز الشركات التقنية والإبداعية التي تقدم حلولًا متكاملة تجمع بين الجودة العالية، الفكرة الذكية،
+            والتقنية الحديثة، وأن نصنع أثرًا واضحًا في مشاريع عملائنا من خلال خدمات موثوقة ومخرجات احترافية.</p>
+        </div>
+        <div class="card">
+          <h3>رسالتنا</h3>
+          <p>نسعى إلى تمكين الأفراد والمؤسسات من الظهور بمستوى احترافي في العالم الرقمي، عبر تقديم خدمات تقنية وإبداعية
+            متطورة، بأسلوب عصري، وتنفيذ دقيق، وتجربة عمل مريحة وشفافة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <span class="tag">خدماتنا</span>
+      <h2>منظومة متكاملة تحت سقف واحد</h2>
+      <p class="section-lead">من الفكرة الإبداعية إلى الحل التقني المتكامل، نجمع كل ما يحتاجه مشروعك في مكان واحد.</p>
+      <div class="services-grid">
+        <div class="service">
+          <div class="ic">🎨</div>
+          <h3>التصميم والمونتاج والجرافيكس</h3>
+          <p>هويات بصرية، شعارات، بوسترات، وإعلانات مبنية على فهم حقيقي للرسالة. وفي المونتاج، نحوّل المقاطع الخام إلى
+            محتوى مرئي متكامل ومؤثر.</p>
+        </div>
+        <div class="service">
+          <div class="ic">🌐</div>
+          <h3>بناء المواقع الإلكترونية</h3>
+          <p>مواقع حديثة، سريعة، متجاوبة، وسهلة الاستخدام، تركّز على تجربة المستخدم وسرعة الأداء وتنظيم المحتوى.</p>
+        </div>
+        <div class="service">
+          <div class="ic">⚙️</div>
+          <h3>بناء الأنظمة والحلول التقنية</h3>
+          <p>أنظمة رقمية مخصصة تسهّل الإدارة وتزيد الكفاءة، لإدارة الطلاب، العملاء، المحتوى، الطلبات، وأي عملية تشغيلية.
+          </p>
+        </div>
+        <div class="service">
+          <div class="ic">🛡️</div>
+          <h3>الأمن السيبراني</h3>
+          <p>حلول لرفع مستوى الأمان الرقمي، تحسين الحماية، تقليل المخاطر، ودعم استقرار الأنظمة والمواقع والخدمات.</p>
+        </div>
+        <div class="service">
+          <div class="ic">🤖</div>
+          <h3>الذكاء الاصطناعي</h3>
+          <p>حلول ذكية للأتمتة، تحليل البيانات، وتطوير الأداء — أداة قوية لصناعة فرق حقيقي في المشاريع الحديثة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="why">
+    <div class="wrap">
+      <span class="tag"> لماذا الحسام تكنلوجي؟</span>
+      <h2>ما الذي يميّزنا</h2>
+      <div class="why-grid">
+        <div class="why-item"><span class="n mono">01</span>
+          <p>لأننا لا نقدّم خدمة واحدة فقط، بل منظومة متكاملة تجمع بين الإبداع والتقنية.</p>
+        </div>
+        <div class="why-item"><span class="n mono">02</span>
+          <p>لأننا نعمل باهتمام بالتفاصيل، ونفهم أن كل مشروع له هويته الخاصة.</p>
+        </div>
+        <div class="why-item"><span class="n mono">03</span>
+          <p>لأننا نحرص أن تكون النتيجة النهائية احترافية، واضحة، ومناسبة للهدف.</p>
+        </div>
+        <div class="why-item"><span class="n mono">04</span>
+          <p>لأننا نؤمن أن العميل يستحق شريكًا يسمع، يفهم، ينفذ، ويطوّر.</p>
+        </div>
+      </div>
+      <div class="mix-strip">
+        <span class="chip">الذوق البصري</span>
+        <span class="chip">الفهم التقني</span>
+        <span class="chip">الالتزام</span>
+        <span class="chip">حلول عملية قابلة للتنفيذ</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <span class="tag"> كيف نعمل</span>
+      <h2>من الفكرة إلى النتيجة</h2>
+      <div class="steps">
+        <div class="step"><span class="num mono">١</span>
+          <div>
+            <h4>فهم الفكرة والهدف</h4>
+            <p>نبدأ دائمًا بفهم فكرة المشروع والهدف الحقيقي منه.</p>
+          </div>
+        </div>
+        <div class="step"><span class="num mono">٢</span>
+          <div>
+            <h4>تحديد الاحتياج الفعلي</h4>
+            <p>نحدد ما يحتاجه المشروع فعلًا لتحقيق أفضل نتيجة.</p>
+          </div>
+        </div>
+        <div class="step"><span class="num mono">٣</span>
+          <div>
+            <h4>التخطيط والتنفيذ</h4>
+            <p>ننتقل إلى مرحلة التنفيذ بخطة واضحة ومدروسة.</p>
+          </div>
+        </div>
+        <div class="step"><span class="num mono">٤</span>
+          <div>
+            <h4>مراجعة دقيقة في كل مرحلة</h4>
+            <p>لضمان أفضل نتيجة ممكنة، لأن المشروع الناجح يُبنى بالتدرج والدقة والإتقان.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="values">
+    <div class="wrap">
+      <span class="tag"> قيمنا</span>
+      <h2>أسلوب عمل، لا مجرد شعارات</h2>
+      <div class="values-grid">
+        <div class="value">
+          <div class="dot"></div>
+          <h4>الجودة</h4>
+        </div>
+        <div class="value">
+          <div class="dot"></div>
+          <h4>المصداقية</h4>
+        </div>
+        <div class="value">
+          <div class="dot"></div>
+          <h4>الاحتراف</h4>
+        </div>
+        <div class="value">
+          <div class="dot"></div>
+          <h4>السرعة المدروسة</h4>
+        </div>
+        <div class="value">
+          <div class="dot"></div>
+          <h4>الابتكار</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="audience">
+    <div class="wrap">
+      <span class="tag"> لمن نقدم خدماتنا</span>
+      <h2>جاهزون لنكون جزءًا من نجاحك</h2>
+      <div class="audience-card">
+        <p>نقدّم خدماتنا للأفراد، ورواد الأعمال، والشركات الناشئة، والمؤسسات، والجهات التي تبحث عن حضور تقني وإبداعي
+          قوي. سواء كنت بحاجة إلى تصميم احترافي، أو فيديو مونتاج، أو موقع إلكتروني، أو نظام متكامل، أو دعم في الأمن
+          السيبراني، أو حلول ذكاء اصطناعي — فنحن جاهزون لنكون جزءًا من نجاحك.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="wrap">
+      <span class="tag">من أعمالنا</span>
+      <h2>مشروع نفخر به</h2>
+      <div class="project-card">
+        <div class="info">
+          <div class="badge mono">قريباً · Coming Soon</div>
+          <h3>NEXORA IT</h3>
+          <p>منصة أكاديمية ذكية طوّرتها الحسام تكنلوجي لتجمع الطالب والدكتور والمندوب في نظام رقمي واحد — محاضرات،
+            تكليفات، حضور، وإشعارات فورية، في تجربة واحدة مرتبة وعصرية.</p>
+        </div>
+        <div class="shot"><img src="nexora-app-screens.jpg" alt="لقطات من تطبيق NEXORA IT"></div>
+        <button class="btn btn-primary" onclick="startRedirect()">استعرض المشروع ⟵</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap">
+      <div class="final-cta">
+        <h2>دعنا نبني حضورك الرقمي</h2>
+        <p>إذا كنت تبحث عن شركة تفهم فكرتك وتحوّلها إلى عمل احترافي، فإن الحسام تكنلوجي هي وجهتك المناسبة. نحن هنا لنصنع
+          لك حضورًا يليق بطموحك.</p>
+        <div class="contact-grid">
+          <a class="contact-card whatsapp" href="https://wa.me/967772442154" target="_blank" rel="noopener">
+            <div class="ic-wrap"><i class="fa-brands fa-whatsapp"></i></div>
+            <h4>واتساب</h4>
+            <span class="sub">+967 77 244 2154</span>
+            <span class="go mono">بدء محادثة ⟵</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="developers">
+    <div class="wrap">
+      <span class="tag">فريق العمل</span>
+      <h2>المطورين</h2>
+      <div class="contact-grid">
+        <a class="contact-card instagram" href="https://instagram.com/dd4_8" target="_blank" rel="noopener">
+          <div class="ic-wrap"><i class="fa-brands fa-instagram"></i></div>
+          <h4>فارس</h4>
+          <span class="sub">dd4_8</span>
+          <span class="go mono">فتح الحساب ⟵</span>
+        </a>
+        <a class="contact-card instagram" href="https://instagram.com/hz3_.x9" target="_blank" rel="noopener">
+          <div class="ic-wrap"><i class="fa-brands fa-instagram"></i></div>
+          <h4>حسام</h4>
+          <span class="sub">hz3_.x9</span>
+          <span class="go mono">فتح الحساب ⟵</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="brand"><span class="brand-mark"><img src="hosam-logo.jpg" alt="الحسام تكنلوجي"></span> الحسام تكنلوجي
+      </div>
+      جميع الحقوق محفوظة © 2026
+      <div class="slogan mono">إبداع تقني.. حلول متكاملة.. ونتائج تُرى</div>
+    </div>
+  </footer>
+
+  <div class="overlay" id="overlay">
+    <div class="overlay-box">
+      <div class="ring mono" id="countNum">5</div>
+      <h4>جاري التحضير...</h4>
+      <p>سيتم نقلك إلى عالم NEXORA IT خلال لحظات</p>
+    </div>
+  </div>
+
+  <script>
+    function startRedirect() {
+      const overlay = document.getElementById('overlay');
+      const countEl = document.getElementById('countNum');
+      let n = 5;
+      overlay.classList.add('show');
+      countEl.textContent = n;
+      const timer = setInterval(() => {
+        n--;
+        if (n <= 0) {
+          clearInterval(timer);
+          window.location.href = 'nexora-it.html';
+        } else {
+          countEl.textContent = n;
+        }
+      }, 1000);
+    }
+  </script>
+
+</body>
+
+</html>
